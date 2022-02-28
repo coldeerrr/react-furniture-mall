@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# webpack暴露文件
+/config
+/scripts
+
 # testing
 /coverage
 
