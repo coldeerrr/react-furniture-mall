@@ -1,6 +1,6 @@
 // 智能组件, 处理后台数据
 import React, { useState, useEffect } from "react";
-import api from '../../../api'
+import api from '../../../../api'
 
 // HomehotView 是木偶组件, 渲染视图
 import HomehotView from "../HomehotView";
@@ -13,7 +13,6 @@ const HomehotList = () => {
     // 获取hot1
     useEffect(() => {
         api.getHomehot1().then(res => {
-            console.log(res.data.result);
             if (res.data.status === 200)
                 setHot1List(res.data.result);
         });

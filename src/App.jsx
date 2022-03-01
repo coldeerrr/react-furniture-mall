@@ -1,8 +1,12 @@
+import AppRouter from './router'
+
+const toRender = true
+
 const App = () => {
     return (
-        <div>
-            222
-        </div>
+        <>
+            <AppRouter toRender={toRender}/>
+        </>
     )
 }
 

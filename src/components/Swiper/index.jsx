@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import './style.less'
+import './index.less'
 import Pagination from "./Pagination";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);

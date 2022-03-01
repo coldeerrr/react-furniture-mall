@@ -1,31 +1,31 @@
 import React from "react";
-import { NavLink } from 'react-router-dom'
-import './style.less'
+import { NavLink, Outlet } from 'react-router-dom'
+import './index.less'
 
 const BottomNav = () => {
     return (
         <div className="nav-footer">
             <ul className="clear-fix">
                 <li>
-                    <NavLink to='/home'>
+                    <NavLink to='home'>
                         <i className="iconfont icon-home"></i>
                         首页
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/life'>
+                    <NavLink to='life'>
                         <i className="iconfont icon-trophy"></i>
                         生活服务
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/shop'>
+                    <NavLink to='shop'>
                         <i className="iconfont icon-shop"></i>
                         商城
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/user'>
+                    <NavLink to='user'>
                         <i className="iconfont icon-team"></i>
                         我的
                     </NavLink>
