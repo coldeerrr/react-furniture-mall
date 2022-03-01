@@ -2,12 +2,14 @@ import React from "react";
 import './index.less'
 import { Link } from 'react-router-dom'
 
-const HeaderNav = () => {
+import { connect } from 'react-redux'
+
+const HeaderNav = (props) => {
     return (
         <div className="home-header clear-fix">
             <div className="home-header-left float-left">
                 <Link to='/city'>
-                    <span>杭州</span>
+                    <span>{props.city.cityName}</span>
                     <i className="icon-angle-down"></i>
                 </Link>
             </div>
@@ -24,4 +26,7 @@ const HeaderNav = () => {
     )
 }
 
-export default HeaderNav
+export default connect(
+    state => ({ city: state.city }),
+    {}
+)(HeaderNav)

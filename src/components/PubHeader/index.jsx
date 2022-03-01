@@ -12,7 +12,6 @@ const anonyCom = PubHeader => {
 
 const PubHeader = (props) => {
     function goBack () {
-        console.log(1);
         props.navigate(-1);
     }
 

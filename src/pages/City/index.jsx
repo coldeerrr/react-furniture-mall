@@ -4,7 +4,12 @@ import CityHeader from "../../components/PubHeader";
 import CurrentCity from "./CurrentCity";
 import CityList from "./CityList";
 
-import { initCity, changeCity } from '../../redux/actions/city'
+import { connect } from 'react-redux'
+import store from '../../redux/store'
+import {
+    initCity,
+    changeCity
+} from '../../redux/actions/city'
 
 const anonyCom = City => {
     return (props) => {
@@ -19,7 +24,8 @@ const City = props => {
 
     function onCityEvent(city) {
         // city为CityList传回的参数
-        setCity(city);
+        // setCity(city);
+        props.changeCity({ cityName: city })
         props.navigate(-1);
     }
 
@@ -32,4 +38,10 @@ const City = props => {
     )
 }
 
-export default anonyCom(City)
+export default connect(
+    state => ({ city: state.city }),
+    {
+        initCity,
+        changeCity
+    }
+)(anonyCom(City))
