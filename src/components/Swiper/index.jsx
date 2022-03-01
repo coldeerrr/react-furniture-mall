@@ -31,7 +31,7 @@ const Swiper = (props) => {
                     })
                 }
             </AutoPlaySwipeableViews>
-            <Pagination currentIndex={index} length={banners.length}/>
+            <Pagination currentIndex={index} length={banners.length} />
         </div>
     )
 }
