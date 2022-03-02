@@ -2,8 +2,7 @@ import React from "react";
 import './index.less'
 
 const HomehotView = (props) => {
-    const { data, title } = props
-
+    const { data, title, city } = props
     return (
         <div className="hotproduct">
             <h3>{title}</h3>
@@ -16,7 +15,7 @@ const HomehotView = (props) => {
                                 <li key={id}>
                                     <a href={link}>
                                         <img src={img} alt="" />
-                                        <span>{title}</span>
+                                        <span>{city}{title}</span>
                                     </a>
                                 </li>
                             );

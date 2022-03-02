@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import CityHeader from "../../components/PubHeader";
 import CurrentCity from "./CurrentCity";
 import CityList from "./CityList";
+import CityListNew from "./CityListNew";
 
 import { connect } from 'react-redux'
 import store from '../../redux/store'
@@ -10,6 +11,7 @@ import {
     initCity,
     changeCity
 } from '../../redux/actions/city'
+import city from "../../redux/reducers/city";
 
 const anonyCom = City => {
     return (props) => {
@@ -19,8 +21,6 @@ const anonyCom = City => {
 }
 
 const City = props => {
-
-    const [city, setCity] = useState('北京');
 
     function onCityEvent(city) {
         // city为CityList传回的参数
@@ -32,8 +32,9 @@ const City = props => {
     return (
         <div>
             <CityHeader title='城市选择' />
-            <CurrentCity city={city} />
+            <CurrentCity city={props.city.cityName} />
             <CityList onEvent={onCityEvent} />
+            <CityListNew />
         </div>
     )
 }
