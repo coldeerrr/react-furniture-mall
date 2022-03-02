@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import CityHeader from "../../components/PubHeader";
 import CurrentCity from "./CurrentCity";
-import CityList from "./CityList";
-import CityListNew from "./CityListNew";
+import CityListHot from "./CityListHot";
+import CityListAll from "./CityListAll";
 
 import { connect } from 'react-redux'
 import store from '../../redux/store'
@@ -33,8 +33,8 @@ const City = props => {
         <div>
             <CityHeader title='城市选择' />
             <CurrentCity city={props.city.cityName} />
-            <CityList onEvent={onCityEvent} />
-            <CityListNew />
+            <CityListHot onEvent={onCityEvent} />
+            <CityListAll onEvent={onCityEvent}/>
         </div>
     )
 }

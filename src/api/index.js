@@ -3,7 +3,8 @@ import axios from "../utils/request";
 // 保存路径地址
 const base = {
     baseUrl: "http://localhost:5566",
-    cityUrl: "https://bang.360.cn/aj/getcitycode",
+    // 为解决跨域问题把https://bang.360.cn路径替换为/api
+    cityUrl: "/api/aj/getcitycode",
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
 }

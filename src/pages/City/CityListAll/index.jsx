@@ -5,24 +5,24 @@ import api from "../../../api";
 import './index.less'
 
 const CityListNew = props => {
-    const [cityData, setCityData] = useState({});
+    const [cityData, setCityData] = useState(data);
 
     function handleSelectCity(cityData) {
-        console.log(cityData);
+        props.onEvent(cityData.name)
     }
 
     useEffect(() => {
         api.getCityLists().then(res => {
-            if(res.status === 200) {
-                setCityData(res.data.result.cityList)
+            if (res.status === 200) {
+                setCityData(res.data.result.citylist)
             }
         })
-    })
+    }, [])
 
     return (
         <div className="city-list-new-container">
-            <CitySelect 
-                data={data}
+            <CitySelect
+                data={cityData}
                 onSelectItem={handleSelectCity}
             />
         </div>
