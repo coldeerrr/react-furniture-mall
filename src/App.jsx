@@ -1,12 +1,10 @@
 import AppRouter from './router'
-
-const toRender = true
+import { BrowserRouter } from 'react-router-dom'
+import Home from './pages/Main/Home'
 
 const App = () => {
     return (
-        <>
-            <AppRouter toRender={toRender}/>
-        </>
+        <AppRouter />
     )
 }
 

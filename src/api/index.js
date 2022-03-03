@@ -7,6 +7,7 @@ const base = {
     cityUrl: "/api/aj/getcitycode",
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
+    search: "/api/search",
 }
 
 // 保存请求方法
@@ -25,6 +26,12 @@ const api = {
     // 获取城市列表
     getCityLists() {
         return axios.get(base.cityUrl)
+    },
+    // 搜索
+    getSearch(params) {
+        return axios.get(base.baseUrl + base.search, {
+            params
+        })
     }
 }
 

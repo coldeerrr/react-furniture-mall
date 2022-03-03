@@ -2,17 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './index.less'
 
-// 封装hoc组件实现前进后退
-const anonyCom = PubHeader => {
-    return (props) => {
-        let navigate = useNavigate();
-        return <PubHeader {...props} navigate={navigate}/>
-    }
-}
-
 const PubHeader = (props) => {
+    const navigate = useNavigate();
+
     function goBack () {
-        props.navigate(-1);
+        navigate(-1);
     }
 
     return (
@@ -25,4 +19,4 @@ const PubHeader = (props) => {
     )
 }
 
-export default anonyCom(PubHeader)
+export default PubHeader
