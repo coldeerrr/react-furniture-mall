@@ -6,26 +6,39 @@ import LoadMore from "../../../components/LoadMore";
 
 const SearchList = props => {
     const [keywords, setKeywords] = useState([]);
+    const [hasMore, setHasMore] = useState(false);
 
     useEffect(() => {
+        http();
+    }, [])
+
+    function handleLoadMore() {
+        http();
+    }
+
+    // 提取发送网络请求的逻辑
+    function http() {
         api.getSearch({
             keywords: props.keywords
         }).then(res => {
             if (res.data.status === 200) {
-                setKeywords(res.data.result.data)
+                // 合并多次加载数据的结果
+                setKeywords(keywords.concat(res.data.result.data));
+                setHasMore(res.data.result.hasMore);
             }
         }).catch(error => {
             console.log(error);
         })
-    }, [])
+    }
 
     return (
         <div>
             {
-                keywords.length > 0 ? <SearchListView keywords={keywords}/> : <div>等待数据加载...</div>
+                keywords.length > 0 ? <SearchListView keywords={keywords} /> : <div>等待数据加载...</div>
             }
-            <LoadMore />
-            <div>load</div>
+            {
+                hasMore ? <LoadMore onLoadMore={handleLoadMore} /> : <div>没有数据了...</div>
+            }
         </div>
     )
 }

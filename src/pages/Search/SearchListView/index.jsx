@@ -5,8 +5,8 @@ const SearchListView = props => {
     return (
         <div>
             {
-                props.keywords.map(keyword => {
-                    return <Item key={keyword.id} data={keyword}/>
+                props.keywords.map((keyword, index) => {
+                    return <Item key={index} data={keyword}/>
                 })
             }
         </div>
