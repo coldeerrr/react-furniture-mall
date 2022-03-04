@@ -6,21 +6,20 @@ import Shop from '../pages/Main/Shop'
 import User from '../pages/Main/User'
 import City from "../pages/City";
 import Search from "../pages/Search";
-
-import BottomNav from "../components/BottomNav";
+import Details from "../pages/Details";
 
 const AppRouter = () => {
     return (
         <BrowserRouter>
-            {/* <BottomNav /> */}
             <Routes>
                 <Route path="/home/*" element={<Home />} />
                 <Route path="/life" element={<LifeService />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/user" element={<User />} />
                 <Route path="*" element={<Navigate to='home' />} />
-                <Route path="/city/*" element={<City />} />
+                <Route path="city/*" element={<City />} />
                 <Route path="search/:keywords" element={<Search />} />
+                <Route path="details/:id" element={<Details />} />
             </Routes>
         </BrowserRouter>
     )

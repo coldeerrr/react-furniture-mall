@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const homehot = require("./data/home/homehot");
 const search = require("./data/search");
+const details = require("./data/details");
 const url = require("url");
 // 用mock模拟数据
 const Mock = require("mockjs");
@@ -30,8 +31,8 @@ router.get("/search", (req, res) => {
     const { mock, Random } = Mock;
     let data = mock({
         "hasMore|1": [true, false],
-        'data|5': [{
-            id: Random.integer(),
+        'data|3-6': [{
+            id: Random.integer(0),
             title: Random.csentence(5, 8),
             houseType: "17/19层| 4室1厅 - 273.97 ㎡",
             price: "<h3>130000</h3>",
@@ -45,6 +46,14 @@ router.get("/search", (req, res) => {
         result: data
     })
 })
+// 详情页数据
+router.get("/details", (req, res) => {
+    const id = url.parse(req.url, true).query.id;
+    res.send({
+        status: 200,
+        result: details
+    })
+})
 // mock模拟数据
 router.get("/mock", (req, res) => {
     const { mock, Random } = Mock;
@@ -52,7 +61,7 @@ router.get("/mock", (req, res) => {
         "hasMore|1": [true, false],
         // 'name|rule': value
         'data|5': [{
-            id: Random.integer(),
+            id: Random.integer(0),
             title: Random.csentence(5, 8),
             houseType: "17/19层| 4室1厅 - 273.97 ㎡",
             price: "<h3>130000</h3>",

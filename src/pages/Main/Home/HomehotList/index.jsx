@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import api from '../../../../api'
 
 // HomehotView 是木偶组件, 渲染视图
-import HomehotView from "../HomehotView";
+import HomehotListView from "../HomehotListView";
 
 const HomehotList = props => {
     const [hot1List, setHot1List] = useState([]);
@@ -39,10 +39,10 @@ const HomehotList = props => {
         <div>
             {
                 // 判断是否有数据, 有数据时渲染视图
-                hot1List.length > 0 ? <HomehotView title='热门商品' data={hot1List} city={city} /> : <div>等待数据加载...</div>
+                hot1List.length > 0 ? <HomehotListView title='热门商品' data={hot1List} city={city} /> : <div>等待数据加载...</div>
             }
             {
-                hot2List.length > 0 ? <HomehotView title='新品推荐' data={hot2List} city={city} /> : <div>等待数据加载...</div>
+                hot2List.length > 0 ? <HomehotListView title='新品推荐' data={hot2List} city={city} /> : <div>等待数据加载...</div>
 
             }
         </div>

@@ -8,6 +8,7 @@ const base = {
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
     search: "/api/search",
+    details: "/api/details"
 }
 
 // 保存请求方法
@@ -30,6 +31,12 @@ const api = {
     // 搜索
     getSearch(params) {
         return axios.get(base.baseUrl + base.search, {
+            params
+        })
+    },
+    // 详情页
+    getDetails(params) {
+        return axios.get(base.baseUrl + base.details, {
             params
         })
     }

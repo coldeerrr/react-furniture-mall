@@ -22,6 +22,7 @@ const Swiper = (props) => {
         <div className="swiper">
             <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex}>
                 {
+                    // 引用该组件时, 需要传名为banners的props
                     banners.map((banner, index) => {
                         return (
                             <div key={index} className="swiper-view">

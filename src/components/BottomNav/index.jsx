@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import './index.less'
 import Home from '../../pages/Main/Home'
 import LifeService from '../../pages/Main/LifeService'
@@ -35,12 +35,7 @@ const BottomNav = () => {
                     </NavLink>
                 </li>
             </ul>
-            <Routes>
-                <Route path="/home" element={<Home />} />
-                <Route path="/life" element={<LifeService />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/user" element={<User />} />
-            </Routes>
+            <Outlet />
         </div>
     )
 }
