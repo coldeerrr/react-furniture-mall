@@ -10,7 +10,8 @@ const SearchList = props => {
 
     useEffect(() => {
         http();
-    }, [])
+        // 每次搜索框关键词变化都会触发
+    }, [props.keywords])
 
     function handleLoadMore() {
         http();

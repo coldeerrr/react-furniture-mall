@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './index.less'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { updateSearch } from '../../redux/actions/search'
 
-const SearchInput = () => {
+const SearchInput = props => {
     const [keywords, setKeywords] = useState('');
+
+    const { keywords: reduxKeywords } = props.search;
+
+    const params = useParams();
 
     const navigate = useNavigate();
 
@@ -11,6 +17,7 @@ const SearchInput = () => {
         if (keywords.length > 0) {
             if (e.keyCode === 13) {
                 navigate('/search/' + keywords);
+                props.updateSearch({ keywords: keywords })
             }
         }
     }
@@ -18,6 +25,19 @@ const SearchInput = () => {
     function handleChange(e) {
         setKeywords(e.target.value);
     }
+
+    useEffect(() => {
+        // 后退时redux也更新
+        if (params.keywords) { 
+            props.updateSearch({ keywords: params.keywords }) 
+            // 后退到首页时为空
+        } else {
+            props.updateSearch({ keywords: '' }) 
+        }
+        // 输入框携带参数跳转
+        setKeywords(reduxKeywords);
+    }, [reduxKeywords, params.keywords])
+
     return (
         <input type="text"
             className="search-input"
@@ -28,4 +48,9 @@ const SearchInput = () => {
     )
 }
 
-export default SearchInput
+export default connect(
+    state => ({ search: state.search }),
+    {
+        updateSearch
+    }
+)(SearchInput)
