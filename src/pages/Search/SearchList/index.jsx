@@ -10,8 +10,14 @@ const SearchList = props => {
 
     useEffect(() => {
         http();
-        // 每次搜索框关键词变化都会触发
-    }, [props.keywords])
+
+        // 卸载组件时执行的函数, 防止内存泄漏
+        return () => {
+            setKeywords([]);
+            setHasMore(false);
+        }
+    }, [props.keywords])  // 每次搜索框关键词变化都会触发
+
 
     function handleLoadMore() {
         http();

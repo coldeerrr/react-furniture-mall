@@ -15,8 +15,8 @@ const LoadMore = props => {
         const winHeight = document.documentElement.clientHeight;
         // 防抖定时器
         let timer = null;
-        // 监听滚动事件
-        window.addEventListener("scroll", () => {
+
+        function handleScroll() {
             // getBoundingClientRect
             if (more.current) {
                 setLoadTop(more.current.getBoundingClientRect().top);
@@ -30,11 +30,19 @@ const LoadMore = props => {
                         }
                     }, 300);
                 }
-
             }
-        })
-        // 值会变化, 需要重新刷新
-    }, [loadTop])
+        }
+
+        // 监听滚动事件
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            // 滚动事件容易造成内存泄漏, 需要移除滚动事件的监听
+            // window.removeEventListener("scroll", handleScroll);
+            // clearTimeout(timer); // 定时器也需清空
+        }
+
+    }, [loadTop])  // 值会变化, 需要重新刷新
 
     return (
         <div ref={more} className="load">
