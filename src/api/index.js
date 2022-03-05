@@ -8,7 +8,8 @@ const base = {
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
     search: "/api/search",
-    details: "/api/details"
+    details: "/api/details",
+    login: "/api/login",
 }
 
 // 保存请求方法
@@ -39,6 +40,10 @@ const api = {
         return axios.get(base.baseUrl + base.details, {
             params
         })
+    },
+    // 登录
+    postLogin(params) {
+        return axios.post(base.baseUrl + base.login, params)
     }
 }
 
