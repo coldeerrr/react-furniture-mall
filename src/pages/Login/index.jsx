@@ -12,12 +12,20 @@ const Login = props => {
 
     function handleLogin(data) {
         const { token, name } = data;
+        // 写入redux
         props.setLogin({
             user: {
                 token: token,
                 name: name
             }
         });
+        // 存入本地
+        localStorage.setItem("furniture-mall", JSON.stringify({
+            user: {
+                token: token,
+                name: name
+            }
+        }))
         navigate(-1);
     }
     return (

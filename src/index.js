@@ -7,6 +7,8 @@ import './asserts/css/iconfont.css'
 
 import { Provider } from 'react-redux'
 import store from './redux/store'
+// 初始化
+import './utils/init'
 
 import App from './App'
 

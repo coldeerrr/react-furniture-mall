@@ -3,6 +3,8 @@ const router = express.Router();
 const homehot = require("./data/home/homehot");
 const search = require("./data/search");
 const details = require("./data/details");
+const comment = require("./data/comment");
+const order = require("./data/order")
 const url = require("url");
 // 用mock模拟数据
 const Mock = require("mockjs");
@@ -70,7 +72,31 @@ router.post("/login", (req, res) => {
         })
     }
 })
-
+// 评价
+router.get("/comment", (req,res) => {
+    const id = url.parse(req.url, true).query.id;
+    res.send({
+        status: 200,
+        result: comment
+    })
+})
+// 订单
+router.get("/order", (req, res) => {
+    const username = url.parse(req.url, true).query.username; // 用户名
+    res.send({
+        status: 200,
+        result: order
+    })
+})
+// 评价订单
+router.post("/order/comment", (req, res) => {
+    const {username, id, content} = req.body // 用户名, 评价的订单号, 评价内容
+    console.log(id, content);
+    res.send({
+        status: 200,
+        msg: "评价成功"
+    })
+})
 // mock模拟数据
 router.get("/mock", (req, res) => {
     const { mock, Random } = Mock;

@@ -13,6 +13,7 @@ const BuyAndCollect = props => {
     const { id } = useParams();
 
     function handleCollect() {
+        console.log(props);
         const { token } = login.user;
         if (token) {
             // 判断是否收藏
@@ -28,6 +29,7 @@ const BuyAndCollect = props => {
 
     // 判断用户是否收藏 true为收藏, false为为收藏
     function isCollect() {
+        console.log(111);
         return collect.some(item => item === id)
     }
 

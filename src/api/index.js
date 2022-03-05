@@ -10,6 +10,9 @@ const base = {
     search: "/api/search",
     details: "/api/details",
     login: "/api/login",
+    comment: "/api/comment",
+    order: "/api/order",
+    orderComment: "/api/order/comment",
 }
 
 // 保存请求方法
@@ -44,6 +47,21 @@ const api = {
     // 登录
     postLogin(params) {
         return axios.post(base.baseUrl + base.login, params)
+    },
+    // 评价
+    getComment(params) {
+        return axios.get(base.baseUrl + base.comment, {
+            params
+        })
+    },
+    // 订单
+    getOrder(params) {
+        return axios.get(base.baseUrl + base.order, {
+            params
+        })
+    },
+    postOrderComment(params) {
+        return axios.post(base.baseUrl + base.orderComment, params)
     }
 }
 
