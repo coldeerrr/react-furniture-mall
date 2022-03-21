@@ -25,6 +25,20 @@
 - 评价
 - 收藏
 
+## 项目预览:eyes:
+
+![主页](https://files.mdnice.com/user/28027/c6b22107-a193-4836-8884-49b8ae7cb381.png)
+
+![城市选择](https://files.mdnice.com/user/28027/6c4a4450-a3e7-4182-9146-3e5b4a44d3bc.png)
+
+![订单](https://files.mdnice.com/user/28027/3d7f7dae-cba9-4a5a-879c-9310cce3a527.png)
+
+![搜索](https://files.mdnice.com/user/28027/7a86b8fc-bd8c-4459-acdf-c8235c9c5b53.png)
+
+![详情](https://files.mdnice.com/user/28027/a86123db-c0bd-4f2c-92cb-2341233ef8ee.png)
+
+![评价](https://files.mdnice.com/user/28027/620f0680-33cc-4135-b5f6-7af4401a9c75.png)
+
 ## 项目结构:page_facing_up:
 
     |- server: 简易服务器
